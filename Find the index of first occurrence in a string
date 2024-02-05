@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n=haystack.size();
+        int m=needle.size();
+        if(m>n){
+            return -1;
+        }
+        int i=0, j=0;
+        int start=0;
+        while(i<n && j<m){
+            if(haystack[i]==needle[j]){
+                if(i-start+1==m){
+                    return start;
+                }
+                j++;
+                i++;
+            }
+            else{
+                j=0;
+                start++;
+                i=start;
+            }
+        }
+      return -1;  
+    }
+};
